@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModsenTask.Services.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,9 +10,10 @@ namespace ModsenTask.Controllers
     [Route("events")]
     public class EventController : ControllerBase
     {
-        public EventController()
+        private readonly IEventService _eventService;
+        public EventController(IEventService service)
         {
-
+            _eventService = service ?? throw new ArgumentNullException(nameof(service));
         }
 
         [HttpGet(Name = "GetEvents")]
