@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ModsenTask.Services.EntityFrameworkCore.Events.Context;
 using ModsenTask.Services.EntityFrameworkCore.Events.Entities.Data;
+using ModsenTask.Services.Services;
 
 namespace ModsenTask
 {
@@ -23,12 +24,13 @@ namespace ModsenTask
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var a = Configuration["ConnectionStrings:EventDataConnection"];
             services.AddDbContext<EventDataContext>(opts =>
             {
                 opts.UseSqlServer(
                     Configuration["ConnectionStrings:EventDataConnection"]);
             });
+
+            services.AddScoped<IEventService, EventService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
