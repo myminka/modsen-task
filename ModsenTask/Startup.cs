@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ModsenTask.Services.EntityFrameworkCore.Events.Context;
+using ModsenTask.Services.EntityFrameworkCore.Events.Entities.Data;
 
 namespace ModsenTask
 {
@@ -47,6 +48,8 @@ namespace ModsenTask
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+
+            SeedData.EnsurePopulated(app);
         }
     }
 }

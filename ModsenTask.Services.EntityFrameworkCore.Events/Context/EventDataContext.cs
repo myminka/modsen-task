@@ -10,7 +10,7 @@ namespace ModsenTask.Services.EntityFrameworkCore.Events.Context
         {
         }
 
-        public DbSet<EventData> eventDatas { get; set; }
-        public DbSet<Address> addresses { get; set; }
+        public DbSet<EventData> EventDatas { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }
