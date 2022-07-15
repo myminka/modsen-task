@@ -7,6 +7,9 @@ namespace ModsenTask.Services.EntityFrameworkCore.Events.Entities
 {
     public class Address
     {
+        [Column("id")]
+        public int Id { get; set; }
+
         [Column("country")]
         public string Country { get; set; }
 
