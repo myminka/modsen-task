@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ModsenTask.Services.EntityFrameworkCore.Events.Entities;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ModsenTask.Services.Services
 {
@@ -12,37 +12,36 @@ namespace ModsenTask.Services.Services
         /// <summary>
         /// Show a list of events.
         /// </summary>
-        /// <returns></returns>
-        IList<object> ShowAllEvents();
+        /// <returns>All events.</returns>
+        IQueryable<EventData> ShowAllEvents();
 
         /// <summary>
-        /// Try to show a employee with specified identifier.
+        /// Show an employee with specified identifier.
         /// </summary>
         /// <param name="eventId">Event identifier.</param>
-        /// <param name="eventData">An event to return.</param>
-        /// <returns>Returns event, otherwise returns null.</returns>
-        object TryShowEvent(int eventId, out object eventData);
+        /// <returns>Event, if event exists, otherwise returns default value.</returns>
+        Task<EventData> ShowEventById(int eventId);
 
         /// <summary>
         /// Creates a new event.
         /// </summary>
         /// <param name="eventData">An event to create.</param>
         /// <returns>An identifier of a created employee.</returns>
-        int CreateEvent(object eventData);
+        Task<int> CreateEvent(EventData eventData);
 
         /// <summary>
         /// Destroy an existed event.
         /// </summary>
         /// <param name="eventId"></param>
-        /// <returns></returns>
-        bool DeleteEvent(int eventId);
+        /// <returns>True if event was deleted successfully, otherwise false./</returns>
+        Task<bool> DeleteEvent(int eventId);
 
         /// <summary>
         /// Updates a event.
         /// </summary>
         /// <param name="eventId">An event identifier.</param>
         /// <param name="eventData">True if employee is updated; otherwise false.</param>
-        /// <returns></returns>
-        bool UpdateEvent(int eventId, object eventData);
+        /// <returns>True if event was updated successfully.</returns>
+        Task<bool> UpdateEvent(int eventId, EventData eventData);
     }
 }

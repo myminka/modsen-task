@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ModsenTask.Services.EntityFrameworkCore.Events\ModsenTask.Services.EntityFrameworkCore.Events.csproj" />
+  </ItemGroup>
+
 </Project>
