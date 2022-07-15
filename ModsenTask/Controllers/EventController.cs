@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ModsenTask.Services.EntityFrameworkCore.Events.Entities;
 using ModsenTask.Services.Services;
 using System;
 using System.Collections.Generic;
@@ -17,33 +18,61 @@ namespace ModsenTask.Controllers
         }
 
         [HttpGet(Name = "GetEvents")]
-        public async Task<ActionResult<IEnumerable<object>>> GetAll()
+        public async Task<ActionResult<IEnumerable<EventData>>> GetAll()
         {
-            throw new NotImplementedException();
+            return (List<EventData>) await _eventService.ShowAllEvents();
         }
 
         [HttpGet("{id}", Name = "GetEventById")]
-        public async Task<ActionResult<Object>> GetById(int id)
+        public async Task<ActionResult<EventData>> GetById(int id)
         {
-            throw new NotImplementedException();
+            var eventData = await _eventService.ShowEventById(id);
+
+            if (eventData is null)
+            {
+                return this.NotFound();
+            }
+
+            return eventData;
         }
 
         [HttpPost(Name = "CreateEvent")]
-        public async Task<IActionResult> Create(object even)
+        public async Task<IActionResult> Create(EventData eventData)
         {
-            throw new NotImplementedException();
+            if (eventData is null)
+            {
+                return this.BadRequest();
+            }
+
+            await _eventService.CreateEvent(eventData);
+            return this.CreatedAtAction(nameof(Create), eventData);
         }
 
         [HttpPut("{id}", Name = "UpdateEvent")]
-        public async Task<IActionResult> Update(int id, object even)
+        public async Task<IActionResult> Update(int id, EventData eventData)
         {
-            throw new NotImplementedException();
+            if (eventData is null)
+            {
+                return this.NotFound();
+            }
+
+            if (await _eventService.UpdateEvent(id, eventData))
+            {
+                return this.NoContent();
+            }
+
+            return this.NotFound();
         }
 
         [HttpDelete("{id}", Name = "DeleteEvent")]
         public async Task<IActionResult> Delete(int id)
         {
-            throw new NotImplementedException();
+            if (await _eventService.DeleteEvent(id))
+            {
+                return this.NoContent();
+            }
+
+            return this.NotFound();
         }
     }
 }

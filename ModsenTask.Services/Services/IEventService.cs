@@ -1,4 +1,5 @@
 ﻿using ModsenTask.Services.EntityFrameworkCore.Events.Entities;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace ModsenTask.Services.Services
         /// Show a list of events.
         /// </summary>
         /// <returns>All events.</returns>
-        IQueryable<EventData> ShowAllEvents();
+        Task<IList<EventData>> ShowAllEvents();
 
         /// <summary>
         /// Show an employee with specified identifier.
@@ -41,7 +42,7 @@ namespace ModsenTask.Services.Services
         /// </summary>
         /// <param name="eventId">An event identifier.</param>
         /// <param name="eventData">True if employee is updated; otherwise false.</param>
-        /// <returns>True if event was updated successfully.</returns>
+        /// <returns>True if event was updated successfully, otherwise false.</returns>
         Task<bool> UpdateEvent(int eventId, EventData eventData);
     }
 }

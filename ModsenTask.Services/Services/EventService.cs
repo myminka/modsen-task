@@ -2,6 +2,7 @@
 using ModsenTask.Services.EntityFrameworkCore.Events.Context;
 using ModsenTask.Services.EntityFrameworkCore.Events.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -45,8 +46,8 @@ namespace ModsenTask.Services.Services
         }
 
         /// <inheritdoc/>
-        public IQueryable<EventData> ShowAllEvents() =>
-            this._context.EventDatas;
+        public async Task<IList<EventData>> ShowAllEvents() =>
+            await this._context.EventDatas.ToListAsync();
 
         /// <inheritdoc/>
         public async Task<EventData> ShowEventById(int eventId) =>
