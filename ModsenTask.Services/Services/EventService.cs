@@ -33,7 +33,8 @@ namespace ModsenTask.Services.Services
         /// <inheritdoc/>
         public async Task<bool> DeleteEvent(int eventId)
         {
-            var eventData = await _context.EventDatas.SingleOrDefaultAsync(e => e.Id == eventId);
+            var eventData = await _context.EventDatas
+                .FirstOrDefaultAsync(e => e.Id == eventId);
 
             var res = eventData is null;
             if (!res)
@@ -47,12 +48,15 @@ namespace ModsenTask.Services.Services
 
         /// <inheritdoc/>
         public async Task<IList<EventData>> ShowAllEvents() =>
-            await this._context.EventDatas.ToListAsync();
+            await this._context.EventDatas
+            .Include(e => e.Address)
+            .ToListAsync();
 
         /// <inheritdoc/>
         public async Task<EventData> ShowEventById(int eventId) =>
             await (this._context.EventDatas
             .Where(e => e.Id == eventId)
+            .Include(e => e.Address)
             .FirstOrDefaultAsync<EventData>());
 
         /// <inheritdoc/>
@@ -64,7 +68,8 @@ namespace ModsenTask.Services.Services
             }
 
             var dataToChange = await _context.EventDatas
-                .SingleOrDefaultAsync(e => e.Id == eventId);
+                .Include(e => e.Address)
+                .FirstOrDefaultAsync(e => e.Id == eventId);
 
             var res = dataToChange is null;
             if (!res)
