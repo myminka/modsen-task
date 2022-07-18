@@ -70,6 +70,7 @@ namespace ModsenTask.Services.Services
             if (!res)
             {
                 _context.Entry(dataToChange).CurrentValues.SetValues(eventData);
+                await _context.SaveChangesAsync();
             }
 
             return res;
