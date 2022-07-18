@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using ModsenTask.Services.EntityFrameworkCore.Events.Context;
 using ModsenTask.Services.EntityFrameworkCore.Events.Entities.Data;
 using ModsenTask.Services.Services;
+using System;
 
 namespace ModsenTask
 {
@@ -33,7 +34,21 @@ namespace ModsenTask
             });
 
             services.AddScoped<IEventService, EventService>();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "Event Web API",
+                    Description = "Test ASP.NET Core Web API for Modsen Company",
+                    Contact = new Microsoft.OpenApi.Models.OpenApiContact
+                    {
+                        Name = "Maksim Silkou",
+                        Email = "maxim.silkou.2002@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/maksim-silkou-7906b6221/"),
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
