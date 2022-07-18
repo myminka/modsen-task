@@ -36,11 +36,12 @@ namespace ModsenTask.Services.Services
             var eventData = await _context.EventDatas
                 .FirstOrDefaultAsync(e => e.Id == eventId);
 
-            var res = eventData is null;
-            if (!res)
+            var res = !(eventData is null);
+            if (res)
             {
                 _context.EventDatas.Remove(eventData);
                 await _context.SaveChangesAsync();
+                return res;
             }
 
             return res;
@@ -70,9 +71,10 @@ namespace ModsenTask.Services.Services
             var dataToChange = await _context.EventDatas
                 .Include(e => e.Address)
                 .FirstOrDefaultAsync(e => e.Id == eventId);
+            eventData.Id = eventId;
 
-            var res = dataToChange is null;
-            if (!res)
+            var res = !(dataToChange is null);
+            if (res)
             {
                 _context.Entry(dataToChange).CurrentValues.SetValues(eventData);
                 await _context.SaveChangesAsync();
