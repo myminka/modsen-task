@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ModsenTask.Services.EntityFrameworkCore.Events.Entities
 {
@@ -8,6 +9,7 @@ namespace ModsenTask.Services.EntityFrameworkCore.Events.Entities
     {
         [Key]
         [Column("id")]
+        [JsonIgnore]
         public int Id { get; set; }
 
         [Column("name")]
