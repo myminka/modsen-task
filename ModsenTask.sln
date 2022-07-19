@@ -5,9 +5,11 @@ VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModsenTask", "ModsenTask\ModsenTask.csproj", "{D2ED23C6-172A-4CB5-95B9-EFE26DF774F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModsenTask.Services", "ModsenTask.Services\ModsenTask.Services.csproj", "{D14FCF01-CB58-41ED-B186-7E5BF9AC901D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModsenTask.Services", "ModsenTask.Services\ModsenTask.Services.csproj", "{D14FCF01-CB58-41ED-B186-7E5BF9AC901D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModsenTask.Services.EntityFrameworkCore.Events", "ModsenTask.Services.EntityFrameworkCore.Events\ModsenTask.Services.EntityFrameworkCore.Events.csproj", "{AA8DF66A-A1D7-46B9-9C6C-8FC5F1DCCED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModsenTask.Services.EntityFrameworkCore.Events", "ModsenTask.Services.EntityFrameworkCore.Events\ModsenTask.Services.EntityFrameworkCore.Events.csproj", "{AA8DF66A-A1D7-46B9-9C6C-8FC5F1DCCED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer4", "IdentityServer4\IdentityServer4.csproj", "{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AA8DF66A-A1D7-46B9-9C6C-8FC5F1DCCED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA8DF66A-A1D7-46B9-9C6C-8FC5F1DCCED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA8DF66A-A1D7-46B9-9C6C-8FC5F1DCCED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
