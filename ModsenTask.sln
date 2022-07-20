@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModsenTask.Services", "Mods
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModsenTask.Services.EntityFrameworkCore.Events", "ModsenTask.Services.EntityFrameworkCore.Events\ModsenTask.Services.EntityFrameworkCore.Events.csproj", "{AA8DF66A-A1D7-46B9-9C6C-8FC5F1DCCED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer4", "IdentityServer4\IdentityServer4.csproj", "{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer4.ModsenTask", "IdentityServer4\IdentityServer4.ModsenTask.csproj", "{B4F3AD43-D9F8-45C9-89CB-1FDE0A32D8FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
