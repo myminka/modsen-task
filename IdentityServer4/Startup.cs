@@ -19,7 +19,7 @@ namespace IdentityServer4
         {
             services.AddIdentityServer()
                 .AddInMemoryClients(IdentityConfiguration.Clients)
-                .AddInMemoryIdentityResources(IdentityConfiguration.identityResources)
+                .AddInMemoryIdentityResources(IdentityConfiguration.IdentityResources)
                 .AddInMemoryApiResources(IdentityConfiguration.ApiResources)
                 .AddTestUsers(IdentityConfiguration.Users)
                 .AddDeveloperSigningCredential();

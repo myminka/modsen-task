@@ -26,7 +26,7 @@ namespace IdentityServer4.ModsenTask.Models
                 }
             };
 
-        public static IEnumerable<IdentityResource> identityResources =>
+        public static IEnumerable<IdentityResource> IdentityResources =>
             new IdentityResource[]
             {
                 new IdentityResources.OpenId(),
@@ -48,7 +48,7 @@ namespace IdentityServer4.ModsenTask.Models
                     Scopes = new List<Scope>
                     {
                         new Scope("EventApi.read"),
-                        new Scope("EventApi.write"),
+                        new Scope("EventApi.write")
                     },
                     ApiSecrets = new List<Secret>
                     {
@@ -66,7 +66,7 @@ namespace IdentityServer4.ModsenTask.Models
                     ClientName = "Client1",
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = {new Secret("eb300de4-add9-42f4-a3ac-abd3c60f1919".Sha256())},
-                    AllowedScopes = { "EventApi.read" }
+                    AllowedScopes = { "EventApi.read", "EventApi.write" }
                 }
             };
     }

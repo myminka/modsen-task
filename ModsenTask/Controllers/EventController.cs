@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ModsenTask.Services.EntityFrameworkCore.Events.Entities;
 using ModsenTask.Services.Services;
 using System;
@@ -9,6 +10,7 @@ namespace ModsenTask.Controllers
 {
     [ApiController]
     [Route("events")]
+    [Authorize]
     public class EventController : ControllerBase
     {
         private readonly IEventService _eventService;
